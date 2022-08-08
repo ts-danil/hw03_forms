@@ -1,4 +1,5 @@
-from django.forms import ModelForm, Textarea, Select
+from django.forms import ModelForm, Select, Textarea
+
 from .models import Post
 
 
@@ -6,6 +7,7 @@ class PostForm(ModelForm):
     class Meta:
         model = Post
         fields = ('text', 'group')
+        labels = {'text': 'Текст сообщения', 'group': 'Группа'}
         widgets = {
             "text": Textarea(attrs={
                 'class': 'form-control',
